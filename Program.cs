@@ -41,8 +41,8 @@ class Program
                     Console.ReadLine();
                 }
             }
-
-
+            Console.Clear();
+            Tela.imprimirPartida(partida);
         }
         catch (TabuleiroException e)
         {

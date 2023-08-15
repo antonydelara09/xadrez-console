@@ -14,12 +14,20 @@ namespace xadrez_console
             imprimirPecasCapturadas(pdx);
             Console.WriteLine();
             Console.WriteLine("Turno:   " + pdx.turno);
-            Console.WriteLine("Aguardando jogada:   " + pdx.jogadorAtual);
-            if (pdx.xeque)
+            if (!pdx.terminada)
             {
-                Console.WriteLine("XEQUE!!!");
+                Console.WriteLine("Aguardando jogada:   " + pdx.jogadorAtual);
+                if (pdx.xeque)
+                {
+                    Console.WriteLine("XEQUE!!!");
+                }
+
             }
-            Console.WriteLine();
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor:    "+pdx.jogadorAtual);
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -52,7 +60,7 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    imprimirPeca(tab.peca(i, j)); 
+                    imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
@@ -110,7 +118,7 @@ namespace xadrez_console
                     ConsoleColor aux = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(peca);
-                    Console.ForegroundColor = aux; 
+                    Console.ForegroundColor = aux;
                 }
 
                 Console.Write(" ");
